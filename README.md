@@ -9,21 +9,15 @@ Google API Library wrapper for WordPress.
 
 Install this libary in your theme or plugin via Composer.
 
-To do so, you need write `repositories` section like below.
+To do so, you need write `commposer.json` like below.
 
 ```json
 {
   "name": "your-name/your-theme",
   "description": "WordPress theme",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:hametuha/gapiwp.git"
-    }
-  ],
   "require": {
     "hametuha/gapiwp.git": "1.0.x"
-  },
+  }
 }
 ```
 
@@ -53,12 +47,13 @@ After that, you can call api client library anywhere in your site.
 $ga = \Hametuha\GapiWP\Loader::analytics();
 // Get top 100 pave views of this year.
 $result = $ga->fetch('2015-01-01', date_i18n('Y-m-d'), 'ga:pageviews', array(
-		'max-results' => 100,
-		'dimensions'  => 'ga:pagePath',
-		'sort' => '-ga:pageviews'
-	));
-	var_dump($result);
-	exit;
+	'max-results' => 100,
+	'dimensions'  => 'ga:pagePath',
+	'sort' => '-ga:pageviews'
+));
+// See what is retrieved.
+var_dump($result);
+exit;
 ```
 
 ## Lisence
