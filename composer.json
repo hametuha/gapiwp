@@ -1,0 +1,15 @@
+{
+    "name": "hametuha/gapiwp",
+    "description": "Google API Library wrapper for WordPress.",
+    "require": {
+        "google/apiclient": "1.0.*@beta"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fumikito",
+            "email": "guy@hametuha.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
