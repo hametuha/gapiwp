@@ -16,7 +16,7 @@ To do so, you need write `commposer.json` like below.
   "name": "your-name/your-theme",
   "description": "WordPress theme",
   "require": {
-    "hametuha/gapiwp.git": "1.0.x"
+    "hametuha/gapiwp": "1.0.x"
   }
 }
 ```
@@ -38,9 +38,18 @@ include __DIR__.'/vendor/autoload.php';
 \Hametuha\GapiWP\Loader::load();
 ```
 
-Now you can see setting screen on admin panel. Go to **Setting > Analytics Setting**.
+# Googla Analytics
 
-After that, you can call api client library anywhere in your site.
+Currently, only Google Analytics API is supported. You can now easily contact with Google Analytics data.
+
+After initliazing the library, you can see setting screen on admin panel. Go to **Setting > Analytics Setting**.
+
+What you should enter is...
+
+- Client ID
+- Client secret
+
+You can get them on [Google Developers console](https://console.developers.google.com). Besides that, you have to save your admin screen URL(e.g. `http://local.sample.in/wp-admin//options-general.php?page=gapiwp-analytics`) as redirect URI. It will be treated as white-listed.
 
 ```php
 // Get Google Analytics client.
@@ -55,6 +64,8 @@ $result = $ga->fetch('2015-01-01', date_i18n('Y-m-d'), 'ga:pageviews', array(
 var_dump($result);
 exit;
 ```
+
+[![GapiWP](http://img.youtube.com/vi/a8gMBq1Z3ZA/0.jpg)](https://www.youtube.com/watch?v=a8gMBq1Z3ZA)
 
 ## Lisence
 
