@@ -64,8 +64,9 @@ class Analytics extends Prototype
 			if( 'gapiwp-analytics' == $this->input->get('page') ){
 				// Load assets
 				$css = $this->asset_url.'/css/admin-analytics.css';
-				add_action('admin_enqueue_scripts', function() use ($css){
-					wp_enqueue_style('gapiwp-admin', $css, array(), filemtime($this->base_dir.'/assets/css/admin-analytics.css'));
+				$css_path = $this->base_dir.'/assets/css/admin-analytics.css';
+				add_action('admin_enqueue_scripts', function() use ($css, $css_path){
+					wp_enqueue_style('gapiwp-admin', $css, array(), filemtime($css_path));
 				});
 				// Form send
 				if( $this->input->verify_nonce('ga_token_update') ){
